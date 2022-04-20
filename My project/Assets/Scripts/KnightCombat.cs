@@ -11,6 +11,8 @@ public class KnightCombat : MonoBehaviour
     public Sprite IdleSprite;
     public Sprite SwingSprite;
     SpiderCombat EnemyVar;
+    public bool SwingButton = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +32,13 @@ public class KnightCombat : MonoBehaviour
 
     void SwordSwing()
     {
-        EnemyObject = GameObject.FindGameObjectsWithTag ("SelectedEnemy");
+        if (GameObject.FindGameObjectsWithTag("SelectedEnemy"))
+        {
+            
+        }
+        EnemyObject = GameObject.FindGameObjectsWithTag("SelectedEnemy");
         EnemyVar = EnemyObject[0].GetComponent<SpiderCombat>();
         EnemyVar.Health -= Damage;
     }
+
 }
