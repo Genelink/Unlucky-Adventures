@@ -3,6 +3,8 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BasicAttackButton
     - CameraFollowPlayer
+    - ChangeScene
+    - ChangeText
     - KnightCombat
     - MoveWithFinger
     - SpiderCombat
@@ -10,8 +12,11 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -25,6 +30,9 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Combat.unity:
     - Class: 1
@@ -50,12 +58,22 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1652}
     - Class: 114
+      Script: {instanceID: 2320}
+    - Class: 114
+      Script: {instanceID: 2762}
+    - Class: 114
       Script: {instanceID: 2942}
+    - Class: 114
+      Script: {instanceID: 3202}
     - Class: 114
       Script: {instanceID: 3464}
     - Class: 114
       Script: {instanceID: 4822}
+    - Class: 114
+      Script: {instanceID: 17582}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -64,6 +82,12 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     - Class: 331
       Script: {instanceID: 0}
@@ -92,6 +116,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3102}
     - Class: 114
       Script: {instanceID: 5112}
+    - Class: 114
+      Script: {instanceID: 5574}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -123,7 +149,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: a8b730146580539476704fdf87f96245
+      Hash: e62898048b81dc8253edc372db0ec694
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpiderCombat
@@ -135,7 +161,7 @@ ScriptsOnlyBuild:
     className: SpriteSkin
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 26fe8d64d18a6adb64611d959c11fe05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BasicAttackButton
@@ -519,7 +545,7 @@ ScriptsOnlyBuild:
     className: SpriteShapeGeometryCache
   - hash:
       serializedVersion: 2
-      Hash: 3386e739d6e214eeaadcae027494355a
+      Hash: ec4fd1329d5c5e474fe79fc43841e35e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: KnightCombat
@@ -621,6 +647,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 9e5115a6558d7114377ad63f1a5fc846
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChangeScene
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -655,8 +687,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: a83a7c364abafdd942606ad32aa10ca8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChangeText
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/Combat.unity
-  playerPath: C:/Users/Gene/Documents/Game File Output/Unlucky Adventures.apk
+  playerPath: C:/Users/Gene/Documents/Game File Output/Unlucky AdventuresVers2.apk

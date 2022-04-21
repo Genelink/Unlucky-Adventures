@@ -9,7 +9,7 @@ public class SpiderCombat : MonoBehaviour
     public GameObject CirclePrefab;
     Vector3 SelectedPos;
     Collider2D col;
-    bool Selected;
+    public bool Selected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class SpiderCombat : MonoBehaviour
                     GameObject Circle = Instantiate(CirclePrefab) as GameObject;
                     Circle.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                     Selected = true;
-                    gameObject.tag = "Selected Enemy";
+                    this.tag = "Selected Enemy";
                 }
             }
 

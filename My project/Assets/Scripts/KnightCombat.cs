@@ -27,18 +27,21 @@ public class KnightCombat : MonoBehaviour
     
     void Update()
     {
-        
+        if (SwingButton == true)
+        {
+            SwordSwing();
+            SwingButton = false;
+
+        }
     }
 
     void SwordSwing()
     {
-        if (GameObject.FindGameObjectsWithTag("SelectedEnemy"))
-        {
-            
-        }
-        EnemyObject = GameObject.FindGameObjectsWithTag("SelectedEnemy");
-        EnemyVar = EnemyObject[0].GetComponent<SpiderCombat>();
-        EnemyVar.Health -= Damage;
+        EnemyObject = GameObject.FindGameObjectsWithTag("Selected Enemy");
+        EnemyVar = EnemyObject[0].GetComponent<SpiderCombat>();       
+        EnemyVar.Health -= Damage;    
+        
+        
     }
 
 }
