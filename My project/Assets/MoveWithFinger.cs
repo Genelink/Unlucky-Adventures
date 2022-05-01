@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveWithFinger : MonoBehaviour
 {
     public float speed = 1.0f;
+	public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class MoveWithFinger : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0f;
+			animator.SetFloat("Speed", 1);
             transform.position = Vector3.MoveTowards(transform.position, touchPosition, step);
             
 

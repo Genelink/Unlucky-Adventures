@@ -5,7 +5,7 @@ using UnityEngine;
 public class KnightCombat : MonoBehaviour
 {
     public int Health = 20;
-    public int Damage = 5;
+    public int Damage = 3;
     GameObject[] EnemyObject;
     public SpriteRenderer spriteRenderer;
     public Sprite IdleSprite;
