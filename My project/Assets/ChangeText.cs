@@ -21,6 +21,6 @@ public class ChangeText : MonoBehaviour
     void Update()
     {
         SpiderVar = Spider.GetComponent<SpiderCombat>();
-        textchange.text = "Health: " + SpiderVar.Health + "/10";
+        textchange.text = "Health: " + SpiderVar.Health + "/" + SpiderVar.maxHealth ;
     }
 }

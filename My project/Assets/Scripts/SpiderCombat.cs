@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpiderCombat : MonoBehaviour
 {
+    public int maxHealth = 10;
     public int Health = 10;
     public int Damage = 3;
     public GameObject CirclePrefab;
@@ -39,6 +40,11 @@ public class SpiderCombat : MonoBehaviour
             }
 
             // Make it so it glows with a red ring, and gets the tag Selected Enemy, and if any other ones are selected then they get the enemy tag...
+        }
+
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

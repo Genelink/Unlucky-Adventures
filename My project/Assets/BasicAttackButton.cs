@@ -27,9 +27,12 @@ public class BasicAttackButton : MonoBehaviour
                 if (col == touchedCollider)
                 {
                     PlayerVar = Player.GetComponent<KnightCombat>();
-                    PlayerVar.SwingButton = true;
+                    PlayerVar.BasicAttack = true;
                 }
             }
         }
+
+
+        
     }
 }

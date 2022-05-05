@@ -8,10 +8,8 @@ public class KnightCombat : MonoBehaviour
     public int Damage = 3;
     GameObject[] EnemyObject;
     public SpriteRenderer spriteRenderer;
-    public Sprite IdleSprite;
-    public Sprite SwingSprite;
     SpiderCombat EnemyVar;
-    public bool SwingButton = false;
+    public bool BasicAttack = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +25,10 @@ public class KnightCombat : MonoBehaviour
     
     void Update()
     {
-        if (SwingButton == true)
+        if (BasicAttack == true)
         {
             SwordSwing();
-            SwingButton = false;
+            BasicAttack = false;
 
         }
     }
@@ -42,6 +40,11 @@ public class KnightCombat : MonoBehaviour
         EnemyVar.Health -= Damage;    
         
         
+    }
+
+    IEnumerator WaitTimeSec(int Seconds)
+    {
+        yield return new WaitForSeconds(Seconds);
     }
 
 }
