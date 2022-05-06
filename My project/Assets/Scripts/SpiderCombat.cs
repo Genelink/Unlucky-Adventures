@@ -7,10 +7,13 @@ public class SpiderCombat : MonoBehaviour
     public int maxHealth = 10;
     public int Health = 10;
     public int Damage = 3;
-    public GameObject CirclePrefab;
+    int HealthCheck;
+    
     Vector3 SelectedPos;
     Collider2D col;
     public bool Selected = false;
+
+    public Animator Animation;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +34,7 @@ public class SpiderCombat : MonoBehaviour
             {
                 Collider2D touchedCollider = Physics2D.OverlapPoint(touchPosition);
                 if ((col == touchedCollider) && (Selected == false))
-                {
-                    GameObject Circle = Instantiate(CirclePrefab) as GameObject;
-                    Circle.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                {                  
                     Selected = true;
                     this.tag = "Selected Enemy";
                 }
@@ -42,9 +43,25 @@ public class SpiderCombat : MonoBehaviour
             // Make it so it glows with a red ring, and gets the tag Selected Enemy, and if any other ones are selected then they get the enemy tag...
         }
 
+        if (HealthCheck != Health)
+        {
+            Animation.SetBool("IsHurt", true);
+            
+        } 
+
+
         if (Health <= 0)
         {
-            Destroy(gameObject);
+            Animation.SetBool("IsDied", true);
+            
+            //Destroy(gameObject);
         }
+
+    HealthCheck = Health;
+    }
+
+    void FixedUpdate()
+    {
+        Animation.SetBool("IsHurt", false);
     }
 }

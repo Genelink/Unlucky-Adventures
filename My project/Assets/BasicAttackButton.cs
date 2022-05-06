@@ -7,6 +7,7 @@ public class BasicAttackButton : MonoBehaviour
     Collider2D col;
     public GameObject Player;
     KnightCombat PlayerVar;
+    
     // Start is called before the first frame update
     void Start()
     {

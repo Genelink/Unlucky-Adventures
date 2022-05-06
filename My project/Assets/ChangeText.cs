@@ -21,6 +21,18 @@ public class ChangeText : MonoBehaviour
     void Update()
     {
         SpiderVar = Spider.GetComponent<SpiderCombat>();
-        textchange.text = "Health: " + SpiderVar.Health + "/" + SpiderVar.maxHealth ;
+        
+        if (SpiderVar.Selected == true)
+        {
+            textchange.text = "Selected Health: " + SpiderVar.Health + "/" + SpiderVar.maxHealth;
+        }
+        else
+        {
+            textchange.text = "Health: " + SpiderVar.Health + "/" + SpiderVar.maxHealth ;
+        }
+
+
+
+        
     }
 }
