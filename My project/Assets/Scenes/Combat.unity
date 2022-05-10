@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 236329954}
   - component: {fileID: 236329955}
   - component: {fileID: 236329956}
+  - component: {fileID: 236329957}
   - component: {fileID: 236329951}
   m_Layer: 0
   m_Name: Spider
@@ -162,6 +163,8 @@ MonoBehaviour:
   MyTurn: 0
   Selected: 0
   Animation: {fileID: 236329955}
+  TensionBar: {fileID: 291458076}
+  OtherEnemy: {fileID: 2128429922}
 --- !u!212 &236329952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -225,7 +228,7 @@ Transform:
   m_LocalScale: {x: -0.98463744, y: 0.9004624, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &236329954
 BoxCollider2D:
@@ -285,6 +288,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TouchBegan: 0
+--- !u!114 &236329957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236329950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ed5fad565fdad47a902e0a825432cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseClicked: 0
+  MouseClicked_Down: 0
 --- !u!1 &261915793
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +409,7 @@ GameObject:
   - component: {fileID: 291458078}
   - component: {fileID: 291458077}
   - component: {fileID: 291458080}
+  - component: {fileID: 291458081}
   m_Layer: 0
   m_Name: Tension
   m_TagString: Untagged
@@ -481,7 +499,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &291458080
 MonoBehaviour:
@@ -500,6 +518,19 @@ MonoBehaviour:
   Player: {fileID: 398575465}
   Spider: {fileID: 236329950}
   Crow: {fileID: 2128429922}
+--- !u!114 &291458081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291458076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f82e3a71c9d1f444b0265fb3ae98eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tension: 0
 --- !u!1 &363239037
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +542,7 @@ GameObject:
   - component: {fileID: 363239038}
   - component: {fileID: 363239040}
   - component: {fileID: 363239039}
+  - component: {fileID: 363239041}
   m_Layer: 0
   m_Name: Crow Health
   m_TagString: Untagged
@@ -534,8 +566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 349, y: 105}
-  m_SizeDelta: {x: 95.81, y: 20.4}
+  m_AnchoredPosition: {x: 375.42, y: 105}
+  m_SizeDelta: {x: 170.6, y: 25.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363239039
 MonoBehaviour:
@@ -579,6 +611,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363239037}
   m_CullTransparentMesh: 1
+--- !u!114 &363239041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363239037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a238a549d3a5b145b6a3f44f3657b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spider: {fileID: 2128429922}
 --- !u!1 &398575465
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,11 +655,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb13303edba3343b013b999df2db2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 20
-  Damage: 5
-  spriteRenderer: {fileID: 0}
+  maxHealth: 16
+  Health: 16
+  Damage: 3
+  Animation: {fileID: 398575469}
+  CAEnemy1: {fileID: 236329950}
+  CAEnemy2: {fileID: 2128429922}
   BasicAttack: 0
+  ChargedAttack: 0
   MyTurn: 0
+  TensionBar: {fileID: 291458076}
 --- !u!212 &398575467
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -678,7 +728,7 @@ Transform:
   m_LocalScale: {x: 0.6897, y: 0.6485, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &398575469
 Animator:
@@ -712,6 +762,7 @@ GameObject:
   - component: {fileID: 576378183}
   - component: {fileID: 576378186}
   - component: {fileID: 576378187}
+  - component: {fileID: 576378189}
   - component: {fileID: 576378188}
   - component: {fileID: 576378182}
   m_Layer: 0
@@ -734,6 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 398575465}
+  Animation: {fileID: 576378186}
 --- !u!331 &576378183
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -847,7 +899,7 @@ Transform:
   m_LocalScale: {x: 2.4765, y: 2.5550997, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &576378186
 Animator:
@@ -907,6 +959,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TouchBegan: 0
+--- !u!114 &576378189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576378181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ed5fad565fdad47a902e0a825432cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseClicked: 0
+  MouseClicked_Down: 0
 --- !u!1 &716896274
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,8 +984,9 @@ GameObject:
   - component: {fileID: 716896275}
   - component: {fileID: 716896277}
   - component: {fileID: 716896276}
+  - component: {fileID: 716896278}
   m_Layer: 0
-  m_Name: Crow Health (1)
+  m_Name: Player Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -986,6 +1053,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716896274}
   m_CullTransparentMesh: 1
+--- !u!114 &716896278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716896274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a313b439cf2151d4db652365b00306c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 398575465}
 --- !u!1 &833501219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1166,7 @@ Transform:
   m_LocalScale: {x: 3.067617, y: 2.906218, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &841725353
 GameObject:
@@ -1168,7 +1248,7 @@ Transform:
   m_LocalScale: {x: 3.7971, y: 2.793, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966653826
 GameObject:
@@ -1266,7 +1346,7 @@ RectTransform:
   - {fileID: 716896275}
   - {fileID: 261915794}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1285,7 +1365,10 @@ GameObject:
   - component: {fileID: 1285067737}
   - component: {fileID: 1285067739}
   - component: {fileID: 1285067741}
+  - component: {fileID: 1285067743}
   - component: {fileID: 1285067740}
+  - component: {fileID: 1285067742}
+  - component: {fileID: 1285067744}
   m_Layer: 0
   m_Name: Charge attack button
   m_TagString: Untagged
@@ -1356,7 +1439,7 @@ Transform:
   m_LocalScale: {x: 2.4858, y: 2.3894, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1285067739
 Animator:
@@ -1416,6 +1499,49 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.21, y: 0.77}
   m_EdgeRadius: 0
+--- !u!114 &1285067742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285067736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e730c9a447fe343894767d7d5f0ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckingFor: 1
+  TensionBarGO: {fileID: 291458076}
+  EnoughTension: 0
+--- !u!114 &1285067743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285067736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ed5fad565fdad47a902e0a825432cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseClicked: 0
+  MouseClicked_Down: 0
+--- !u!114 &1285067744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285067736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d604d053abb6eb844add39c564df4f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 398575465}
+  Tension: {fileID: 291458076}
 --- !u!1 &1891616537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1716,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120301422
 GameObject:
@@ -1656,7 +1782,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2128429922
 GameObject:
@@ -1669,7 +1795,9 @@ GameObject:
   - component: {fileID: 2128429924}
   - component: {fileID: 2128429923}
   - component: {fileID: 2128429925}
+  - component: {fileID: 2128429927}
   - component: {fileID: 2128429926}
+  - component: {fileID: 2128429928}
   m_Layer: 0
   m_Name: Crow
   m_TagString: Enemy
@@ -1740,7 +1868,7 @@ Transform:
   m_LocalScale: {x: -0.4864794, y: 0.5707843, z: 0.5707843}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2128429925
 Animator:
@@ -1774,3 +1902,98 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TouchBegan: 0
+--- !u!114 &2128429927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128429922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ed5fad565fdad47a902e0a825432cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseClicked: 0
+  MouseClicked_Down: 0
+--- !u!114 &2128429928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128429922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fecf2bf2f04e214d8dca29344ce3198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 8
+  Health: 8
+  Damage: 2
+  MyTurn: 0
+  Selected: 0
+  Animation: {fileID: 2128429925}
+  TensionBar: {fileID: 291458076}
+  OtherEnemy: {fileID: 236329950}
+--- !u!1001 &5935419729380901885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410017, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410022, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935419728031410023, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6009e6884ac3bc14f98890bf0d66d6cd, type: 3}

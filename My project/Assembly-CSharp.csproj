@@ -47,14 +47,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\SpiderCombat.cs" />
-     <Compile Include="Assets\BasicAttackButton.cs" />
-     <Compile Include="Assets\CameraFollowPlayer.cs" />
-     <Compile Include="Assets\ChangeText.cs" />
-     <Compile Include="Assets\Scripts\KnightCombat.cs" />
-     <Compile Include="Assets\MoveWithFinger.cs" />
-     <Compile Include="Assets\MoveTowardFinger.cs" />
+     <Compile Include="Assets\Scripts\Combat\SpiderCombat.cs" />
+     <Compile Include="Assets\Scripts\Combat\Turns.cs" />
+     <Compile Include="Assets\Scripts\Dungeon\CameraFollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\TouchInput.cs" />
+     <Compile Include="Assets\Scripts\Combat\ShowWhosTurn.cs" />
+     <Compile Include="Assets\Scripts\ChangeText.cs" />
+     <Compile Include="Assets\TestingDebug.cs" />
+     <Compile Include="Assets\Scripts\Combat\KnightCombat.cs" />
+     <Compile Include="Assets\Scripts\Dungeon\MoveWithFinger.cs" />
+     <Compile Include="Assets\Scripts\Dungeon\MoveTowardFinger.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
+     <Compile Include="Assets\Scripts\Combat\BasicAttackButton.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -18,6 +18,10 @@ public class Turns : MonoBehaviour
     public GameObject Crow;
     SpiderCombat CrowVar;
 
+    bool ChangeTurnDone;
+
+    TensionBar TensionBar;
+
 
 
     // Start is called before the first frame update
@@ -28,6 +32,8 @@ public class Turns : MonoBehaviour
         SpiderVar = Spider.GetComponent<SpiderCombat>();
 
         CrowVar = Crow.GetComponent<SpiderCombat>();
+
+        TensionBar = GetComponent<TensionBar>();
 
 
         PlayerVar.MyTurn = true;
@@ -41,8 +47,9 @@ public class Turns : MonoBehaviour
 
         if (Test)
         {
-            ChangeTurn();
             Test = false;
+            ChangeTurn();
+            
         }
 
 
@@ -52,25 +59,53 @@ public class Turns : MonoBehaviour
     
     
     
-    void ChangeTurn()
+    public void ChangeTurn()
     {
-        if (CurrentTurn == "Player")
+        ChangeTurnDone = false;
+
+        while (ChangeTurnDone == false)
         {
-            CurrentTurn = "Spider";
+            if (CurrentTurn == "Spider")
+            {
+                CurrentTurn = "Crow";
+                
+                
+
+                PlayerVar.MyTurn = false;
+                SpiderVar.MyTurn = false;
+                CrowVar.MyTurn = true;
+
+                ChangeTurnDone = true;
+                break;
             
-        }
-        else if (CurrentTurn == "Spider")
-        {
-            CurrentTurn = "Crow";
+            }
+
+            else if (CurrentTurn == "Player")
+            {
+                CurrentTurn = "Spider";
+                PlayerVar.MyTurn = false;
+                SpiderVar.MyTurn = true;
+                CrowVar.MyTurn = false;
+                
+                ChangeTurnDone = true;
+                break;
             
-        }
-        else if (CurrentTurn == "Crow")
-        {
-            CurrentTurn = "Player";
-            
+            }
+        
+            else if (CurrentTurn == "Crow")
+            {
+                TensionBar.AddTension();
+
+                CurrentTurn = "Player";
+                PlayerVar.MyTurn = true;
+                SpiderVar.MyTurn = false;
+                CrowVar.MyTurn = false;
+                
+                ChangeTurnDone = true;
+                break;
+            }
         }
 
     }
-
 
 }

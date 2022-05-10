@@ -31,7 +31,7 @@ public class MoveWithFinger : MonoBehaviour
             {
                 Jarold.flipX = false;
             }
-            
+            FindObjectOfType<AudioManager>().Play("Walking");
             transform.position = Vector3.MoveTowards(transform.position, touchPosition, step);
             
 
@@ -39,20 +39,43 @@ public class MoveWithFinger : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
+            
+            
+            
+            
+            
+            
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
+            
+            if (mousePosition.x < transform.position.x)
+            {
+                Jarold.flipX = true;
+            }
+            if (mousePosition.x > transform.position.x)
+            {
+                Jarold.flipX = false;
+            }
+            
+            
+            
             transform.position = Vector3.MoveTowards(transform.position, mousePosition, step);
+            FindObjectOfType<AudioManager>().Play("Walking");
         }
 
-        if ((Input.touchCount > 0) | (Input.GetMouseButtonDown(0)))
+        
+        
+        
+        if ((Input.touchCount > 0) | (Input.GetMouseButton(0)))
         {
             animator.SetBool("IsWalking", true);
+            //FindObjectOfType<AudioManager>().Play("Walking");
         }
         else
         {
             animator.SetBool("IsWalking", false);
+            //FindObjectOfType<AudioManager>().Stop("Walking");
         }
 
     }

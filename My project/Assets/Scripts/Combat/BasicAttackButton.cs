@@ -8,7 +8,11 @@ public class BasicAttackButton : MonoBehaviour
     public GameObject Player;
     KnightCombat PlayerVar;
     GameObject[] SelectedEnemey;
-    TouchInput Finger;
+
+    [SerializeField] Animator Animation;
+
+    TouchInput TouchInput;
+    MouseInput MouseInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +22,24 @@ public class BasicAttackButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Finger = GetComponent<TouchInput>();
+        TouchInput = GetComponent<TouchInput>();
+        MouseInput = GetComponent<MouseInput>();
         
         SelectedEnemey = GameObject.FindGameObjectsWithTag("Selected Enemy");
+
+        if (SelectedEnemey.Length >= 1)
+        {
+            Animation.SetBool("CanAttack", true);
+        }
+        else
+        {
+            Animation.SetBool("CanAttack", false);
+        }
         
 
 
 
-        if (Finger.TouchBegan)
+        if (TouchInput.TouchBegan | MouseInput.MouseClicked)
         {
             PlayerVar = Player.GetComponent<KnightCombat>();
             PlayerVar.BasicAttack = true;
